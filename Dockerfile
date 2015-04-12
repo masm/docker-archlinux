@@ -1,15 +1,13 @@
-# archlinux-chef
-# VERSION 0.1.2
-#
-# A fully updated Arch Linux base image
-
 FROM base/archlinux
-MAINTAINER Logan Koester <logan@logankoester.com>
+MAINTAINER Marco Monteiro <marco@neniu.org>
 
-RUN curl -o /etc/pacman.d/mirrorlist "https://www.archlinux.org/mirrorlist/?country=all&protocol=https&ip_version=6&use_mirror_status=on" && \
-  sed -i 's/^#//' /etc/pacman.d/mirrorlist
+RUN pacman-key --populate archlinux && \
+    pacman-key --refresh-keys && \
+    pacman -Sy pacman --needed --noconfirm --noprogressbar && \
+    pacman-db-upgrade && \
+    echo -e '\n[masm]\nSigLevel = Optional TrustAll\nServer = http://pacman-repo.neniu.org/$arch' >> /etc/pacman.conf && \
+    pacman -Syyu --noconfirm --noprogressbar
 
-ONBUILD RUN pacman -Sy --noprogressbar --noconfirm && \
-  pacman -S pacman --noprogressbar --noconfirm && \
-  pacman-db-upgrade && \
-  pacman -Syyu --noprogressbar --noconfirm
+ONBUILD RUN pacman -Sy pacman --needed --noconfirm --noprogressbar && \
+            pacman-db-upgrade && \
+            pacman -Syyu --noconfirm --noprogressbar

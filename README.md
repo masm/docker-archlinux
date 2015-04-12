@@ -1,22 +1,16 @@
 # docker-archlinux
 
-[![Docker Repository on Quay.io](https://quay.io/repository/logankoester/archlinux/status "Docker Repository on Quay.io")](https://quay.io/repository/logankoester/archlinux)
-
 > A fully updated Arch Linux base image built from `base/archlinux`
 
-[![Arch Linux](https://raw.githubusercontent.com/logankoester/docker-archlinux/master/logo.png)](http://archlinux.org)
-
-[![DockerCI](http://dockeri.co/image/logankoester/archlinux)](https://registry.hub.docker.com/u/logankoester/archlinux/)
-
-The pacman mirrorlist is populated by https://www.archlinux.org/mirrorlist/ (all/https/ipv6/by status).
+[![Arch Linux](https://raw.githubusercontent.com/masm/docker-archlinux/master/logo.png)](http://archlinux.org)
 
 ## Install
 
-Pull this image with `docker pull logankoester/archlinux`.
+Pull this image with `docker pull masm/archlinux`.
 
 ## Usage
 
-In your Dockerfile, include the line `FROM logankoester/archlinux`. All system packages will be updated ONBUILD.
+In your Dockerfile, include the line `FROM masm/archlinux`. All system packages will be updated ONBUILD.
 
 ## License
 
