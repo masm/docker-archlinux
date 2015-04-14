@@ -3,11 +3,13 @@ MAINTAINER Marco Monteiro <marco@neniu.org>
 
 RUN pacman-key --populate archlinux && \
     pacman-key --refresh-keys && \
-    pacman -Sy pacman --needed --noconfirm --noprogressbar && \
+    pacman -Sqy pacman --needed --noconfirm --noprogressbar && \
     pacman-db-upgrade && \
     echo -e '\n[masm]\nSigLevel = Optional TrustAll\nServer = http://pacman-repo.neniu.org/$arch' >> /etc/pacman.conf && \
-    pacman -Syyu --noconfirm --noprogressbar
+    pacman -Sqyyu --noconfirm --noprogressbar && \
+    yes | pacman -Sqcc
 
-ONBUILD RUN pacman -Sy pacman --needed --noconfirm --noprogressbar && \
+ONBUILD RUN pacman -Sqy pacman --needed --noconfirm --noprogressbar && \
             pacman-db-upgrade && \
-            pacman -Syyu --noconfirm --noprogressbar
+            pacman -Sqyyu --noconfirm --noprogressbar && \
+            yes | pacman -Sqcc
