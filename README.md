@@ -4,6 +4,8 @@
 
 [![Arch Linux](https://raw.githubusercontent.com/masm/docker-archlinux/master/logo.png)](http://archlinux.org)
 
+This image Pacman's configuration includes a repository that contains some packages from AUR.
+
 ## Install
 
 Pull this image with `docker pull masm/archlinux`.
