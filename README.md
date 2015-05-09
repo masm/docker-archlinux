@@ -1,6 +1,6 @@
 # docker-archlinux
 
-> A fully updated Arch Linux base image built from `base/archlinux`
+> A fully updated Arch Linux base image built from `masm/archlinux-base`
 
 [![Arch Linux](https://raw.githubusercontent.com/masm/docker-archlinux/master/logo.png)](http://archlinux.org)
 
