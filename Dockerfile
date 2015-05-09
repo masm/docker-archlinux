@@ -1,7 +1,8 @@
-FROM base/archlinux
+FROM masm/archlinux-base
 MAINTAINER Marco Monteiro <marco@neniu.org>
 
 RUN pacman-key --populate archlinux && \
+    dirmngr </dev/null && \
     pacman-key --refresh-keys && \
     pacman -Sqy pacman --needed --noconfirm --noprogressbar && \
     pacman-db-upgrade && \
