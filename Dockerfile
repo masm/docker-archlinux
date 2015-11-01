@@ -10,7 +10,7 @@ RUN pacman-key --populate archlinux && \
     pacman -Sqyyu --noconfirm --noprogressbar && \
     yes | pacman -Sqcc && \
     rm -rf /usr/share/man/* && \
-    useradd --create-home --gid users --uid 500 arch
+    useradd --create-home --gid users --password x --uid 500 arch
 
 ONBUILD RUN pacman -Sqy pacman --needed --noconfirm --noprogressbar && \
             pacman-db-upgrade && \
